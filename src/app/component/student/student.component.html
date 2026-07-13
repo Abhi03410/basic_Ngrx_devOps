@@ -1,0 +1,88 @@
+<div class="form-container">
+
+    <form [formGroup]="studentForm">
+
+        <input
+            type="number"
+            formControlName="id"
+            placeholder="Enter Id">
+
+        <input
+            type="text"
+            formControlName="fullName"
+            placeholder="Enter Name">
+
+        <input
+            type="email"
+            formControlName="email"
+            placeholder="Enter Email">
+
+        <input
+            type="text"
+            formControlName="contact"
+            placeholder="Enter Contact">
+
+        <input
+            type="text"
+            formControlName="branch"
+            placeholder="Enter Branch">
+
+        <input
+            type="number"
+            formControlName="std"
+            placeholder="Enter Standard">
+
+        <button
+            type="button"
+            (click)="addStudent()">
+            Add Student
+        </button>
+
+        <button
+            type="button"
+            (click)="updateStudent()">
+            Update Student
+        </button>
+
+    </form>
+
+</div>
+
+<table class="student-table">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Branch</th>
+        <th>Action</th>
+    </tr>
+
+    @for(student of (students$ | async); track student.id){
+
+    <tr>
+
+        <td>{{student.id}}</td>
+        <td>{{student.fullName}}</td>
+        <td>{{student.email}}</td>
+        <td>{{student.branch}}</td>
+
+        <td>
+
+            <button
+                (click)="editStudent(student)">
+                Edit
+            </button>
+
+            <button
+                (click)="remove(student.id)">
+                Delete
+            </button>
+
+        </td>
+
+    </tr>
+
+    }
+
+</table>

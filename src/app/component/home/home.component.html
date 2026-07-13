@@ -1,0 +1,57 @@
+<!-- <p>Angular 22 *ngFor Vs @for loop </p> -->
+
+<!-- *ngFor Loop -->
+
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Branch</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor='let std of studentsData;let i = index'>
+      <td>{{std.id}}</td>
+      <td>{{std.fullName}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.contact}}</td>
+      <td>{{std.branch}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr>
+<!-- @for loop -->
+
+<table border="1" cellpadding="10" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Full Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Branch</th>
+      <th>Standard</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    @for (std of studentsData; track $index) {
+    <tr>
+      <td>{{std.id}}</td>
+      <td>{{std.fullName}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.email}}</td>
+      <td>{{std.contact}}</td>
+      <td>{{std.branch}}</td>
+    </tr>
+    }
+  </tbody>
+</table>
